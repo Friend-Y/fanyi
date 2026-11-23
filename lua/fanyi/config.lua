@@ -8,9 +8,25 @@ M.defaults = {
   float = { max_height = 15, min_width = 24, width_ratio = 0.8 },
   backends = {
     mymemory = { timeout = 8, max_bytes = 450 },
-    -- 下面两项只是给将来的后端预留结构，当前没有注册。
-    deepseek = { timeout = 20, model = "deepseek-chat", api_key = nil },
-    google = { timeout = 8, proxy = nil },
+    -- 在 lua 配置里填写 api_key/model；proxy 用于 DeepSeek 需要走代理的网络。
+    deepseek = {
+      api_key = nil,
+      base_url = "https://api.deepseek.com",
+      model = "deepseek-chat",
+      timeout = 30,
+      max_bytes = 4000,
+      temperature = nil,
+      system_prompt = nil,
+      proxy = nil,
+    },
+    -- mode: auto（有 api_key 走 cloud，否则走 gtx）/ cloud / gtx。
+    google = {
+      mode = "auto",
+      api_key = nil,
+      proxy = nil,
+      timeout = 15,
+      max_bytes = 4500,
+    },
   },
 }
 

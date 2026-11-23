@@ -8,6 +8,8 @@ local M = {}
 
 -- 内置后端。新增后端时在这里加一行 register() 即可。
 backends.register("mymemory", require("fanyi.backends.mymemory"))
+backends.register("deepseek", require("fanyi.backends.deepseek"))
+backends.register("google", require("fanyi.backends.google"))
 
 local cache = {}
 
