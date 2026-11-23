@@ -35,7 +35,7 @@ return {
     backends = {
       deepseek = {
         -- 推荐读环境变量；也可以直接写 "sk-..."。本文件受 git 跟踪，注意别提交密钥。
-        api_key = vim.env.PI_DEEPSEEK_API_KEY or "",
+        api_key = vim.env.DEEPSEEK_API_KEY or "",
         model = "deepseek-chat",
         base_url = "https://api.deepseek.com",
         timeout = 30,
